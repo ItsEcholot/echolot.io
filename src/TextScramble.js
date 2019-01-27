@@ -1,7 +1,7 @@
 class TextScramble {
     constructor(el) {
         this.el = el;
-        this.chars = '!<>-_\\/[]{}—=+*^?#_';
+        this.chars = '01!<>-_\\/[]{}—=+*^?#_';
         this.update = this.update.bind(this);
     }
 

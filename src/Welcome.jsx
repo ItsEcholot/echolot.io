@@ -16,10 +16,6 @@ class Welcome extends PureComponent {
         this.scramblerPhrases = [
             'Echolot',
             'Marc Berchtold',
-            'Echolot',
-            'Echolot',
-            'Marc Berchtold',
-            'Marc Berchtold',
         ];
         let scramblerElement = document.querySelector('.scrambler')
         if (scramblerElement) {
