@@ -14,13 +14,12 @@ class Welcome extends PureComponent {
 
     componentDidMount() {
         this.scramblerPhrases = [
-            'Khalil,',
-            'sooner or later',
-            'you\'re going to realize',
-            'just as I did',
-            'that there\'s a difference',
-            'between knowing the path',
-            'and walking the path'
+            'Echolot',
+            'Marc Berchtold',
+            'Echolot',
+            'Echolot',
+            'Marc Berchtold',
+            'Marc Berchtold',
         ];
         let scramblerElement = document.querySelector('.scrambler')
         if (scramblerElement) {
@@ -31,7 +30,7 @@ class Welcome extends PureComponent {
 
     scramblerNext() {
         this.scrambler.setText(this.scramblerPhrases[this.state.scramblerCounter]).then(() => {
-            this.scramblerTimeout = setTimeout(this.scramblerNext, 800);
+            this.scramblerTimeout = setTimeout(this.scramblerNext, 2000);
         });
 
         this.setState({

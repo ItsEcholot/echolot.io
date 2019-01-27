@@ -1,7 +1,7 @@
 class TextScramble {
     constructor(el) {
         this.el = el;
-        this.chars = '!<>-_\\/[]{}—=+*^?#________';
+        this.chars = '!<>-_\\/[]{}—=+*^?#_';
         this.update = this.update.bind(this);
     }
 
@@ -14,8 +14,8 @@ class TextScramble {
         for (let i = 0; i < length; i++) {
             const from = oldText[i] || '';
             const to = newText[i] || '';
-            const start = Math.floor(Math.random() * 40);
-            const end = Math.floor(Math.random() * 40) + start;
+            const start = Math.floor(Math.random() * 20);
+            const end = Math.floor(Math.random() * 20) + start;
             this.queue.push({ from, to, start, end });
         }
 
@@ -25,26 +25,34 @@ class TextScramble {
         return promise;
     }
 
-    update() {
-        let output = '';
-        let complete = 0;
-        for (let i = 0, n = this.queue.length; i < n; i++) {
+    updateLoop(i, n) {
+        setTimeout(() => {
             let { from, to, start, end, char } = this.queue[i];
 
             if (this.frame >= end) {
-                complete++;
-                output += to;
+                this.complete++;
+                this.output += to;
             } else if (this.frame >= start) {
                 if (!char || Math.random() < 0.28) { char = this.randomChar(); this.queue[i].char = char; }
-                output += `<span class='dud'>${char}</span>`;
+                this.output += `<span class='dud'>${char}</span>`;
             } else {
-                output += from;
+                this.output += from;
             }
-        }
-        this.el.innerHTML = output;
-        if (complete === this.queue.length) { this.resolve(); } else {
-            this.frameRequest = requestAnimationFrame(this.update); this.frame++;
-        }
+
+            if (++i < n) this.updateLoop(i, n);
+            else {
+                this.el.innerHTML = this.output;
+                if (this.complete === this.queue.length) { this.resolve(); } else {
+                    this.frameRequest = requestAnimationFrame(this.update); this.frame++;
+                }
+            }
+        }, 5);
+    }
+
+    update() {
+        this.output = '';
+        this.complete = 0;
+        this.updateLoop(0, this.queue.length);
     }
 
     randomChar() {

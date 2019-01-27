@@ -44,7 +44,7 @@ class Header extends PureComponent {
 
     render() {
         return (
-            <Navbar light expand="md" fixed="top" className={this.state.scrollPos > 100 ? 'scrolled' : null}>
+            <Navbar light expand="md" fixed="top" className={this.state.scrollPos > 100 || this.state.isOpen ? 'scrolled' : null}>
                 <NavbarToggler onClick={this.toggleNavbar} />
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="ml-auto" navbar>
