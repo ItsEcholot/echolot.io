@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  echolotio:
+    image: rossriley/docker-bolt:latest
+    ports:
+      - "9000:80"
+    environment:
+      - BOLT_TITLE=Echolot.io
+    volumes:
+      - ./db-data:/var/www/html/app/database
+      - ./files:/var/www/html/public/files
+      - ./extensions:/var/www/html/extensions
+      - ./config:/var/www/html/app/config
+      - ./theme:/var/www/html/public/theme/echolotio
