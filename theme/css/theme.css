@@ -10,6 +10,10 @@ a {
   text-decoration: underline;
 }
 
+p {
+  margin-bottom: 0;
+}
+
 h1 {
   font-family: 'Rockwell';
   font-size: 60px;
@@ -27,18 +31,12 @@ h2 {
 h3 {
   font-size: 23px;
   font-weight: 400;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .container {
   margin-left: 50px;
   margin-right: 50px;
-}
-
-@media only screen and (max-width: 800px) {
-  img.right-deco-image {
-    display: none;
-  }
 }
 
 img.right-deco-image {
@@ -62,7 +60,24 @@ img.right-deco-image {
 }
 .title-container h3 {
   margin: 0;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-weight: 300;
 }
 
+.projects-container .projects-holder {
+  margin-right: 50%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .projects-container .projects-holder {
+    margin-right: 200px;
+  }
+}
+@media only screen and (max-width: 750px) {
+  img.right-deco-image {
+    display: none;
+  }
+  .projects-container .projects-holder {
+    margin-right: 0;
+  }
+}

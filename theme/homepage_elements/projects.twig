@@ -1,6 +1,22 @@
 <div class="projects-container">
   {% setcontent projects_block = 'block/projects' %}
   <h2>{{ projects_block.title }}</h2>
-
   <img class="right-deco-image" src="{{ asset(projects_block.image, 'files') }}"/>
+
+  {% setcontent projects = 'entries' where { categories: 'projects' } %}
+  <div class="projects-holder">
+  {% for project in projects %}
+    <h3>{{ project.title }}</h3>
+    {{ project.body }}
+    <i>{{ project.datepublish|date('m.Y') }}</i><br>
+    {% set links = project.links|split('\n') %}
+    {% for link in links %}
+      {% set splitLink = link|split('-') %}
+      {% if splitLink|length == 2 %}
+        <a href="{{ splitLink[0] }}">{{ splitLink[1]|trim }}</a>
+        {% if links|length > 1 and loop.index != links|length %}・{% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+  </div>
 </div>
