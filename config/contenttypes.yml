@@ -20,6 +20,9 @@ homepage:
         subtitle:
             type: text
             group: content
+        currently:
+            type: text
+            group: content
         slug:
             type: slug
             uses: title
@@ -89,11 +92,11 @@ entries:
         slug:
             type: slug
             uses: title
-        teaser:
-            type: html
-            height: 150px
         body:
             type: html
+            height: 300px
+        links:
+            type: textarea
             height: 300px
         image:
             type: image
@@ -249,11 +252,6 @@ blocks:
         content:
             type: html
             height: 150px
-        contentlink:
-            type: text
-            label: Link
-            placeholder: 'contenttype/slug or http://example.org/'
-            postfix: "Use this to add a link for this Block. This could either be an 'internal' link like <tt>page/about</tt>, if you use a contenttype/slug combination. Otherwise use a proper URL, like `http://example.org`."
         image:
             type: image
             attrib: title

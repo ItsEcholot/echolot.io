@@ -1,0 +1,6 @@
+<div class="projects-container">
+  {% setcontent projects_block = 'block/projects' %}
+  <h2>{{ projects_block.title }}</h2>
+
+  <img class="right-deco-image" src="{{ asset(projects_block.image, 'files') }}"/>
+</div>
