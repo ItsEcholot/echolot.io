@@ -40,8 +40,7 @@ h3 {
 }
 
 img.right-deco-image {
-  position: absolute;
-  right: 50px;
+  float: right;
   width: 200px;
 }
 
@@ -65,19 +64,16 @@ img.right-deco-image {
 }
 
 .projects-container .projects-holder {
-  margin-right: 50%;
+  width: 50%;
 }
 
 @media only screen and (max-width: 1000px) {
   .projects-container .projects-holder {
-    margin-right: 200px;
+    width: 100%;
   }
 }
 @media only screen and (max-width: 750px) {
   img.right-deco-image {
     display: none;
-  }
-  .projects-container .projects-holder {
-    margin-right: 0;
   }
 }
