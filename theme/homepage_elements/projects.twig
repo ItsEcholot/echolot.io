@@ -7,8 +7,8 @@
   <div class="projects-holder">
   {% for project in projects %}
     <h3>{{ project.title }}</h3>
+    <i>{{ project.datepublish|date('m.Y') }}</i>
     {{ project.body }}
-    <i>{{ project.datepublish|date('m.Y') }}</i><br>
     {% set links = project.links|split('\n') %}
     {% for link in links %}
       {% set splitLink = link|split('-') %}

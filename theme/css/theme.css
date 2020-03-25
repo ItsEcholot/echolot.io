@@ -14,6 +14,16 @@ p {
   margin-bottom: 0;
 }
 
+.hr {
+  width: 100%;
+  height: 1px;
+  display: flex;
+  background-color: #404040;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #404040 50%, rgba(255, 255, 255, 0) 100%);
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
 h1 {
   font-family: 'Rockwell';
   font-size: 60px;
@@ -65,6 +75,19 @@ img.right-deco-image {
 
 .projects-container .projects-holder {
   width: 50%;
+}
+
+.projects-container .projects-holder p {
+  margin-top: 0;
+  margin-bottom: 0.1em;
+}
+
+.projects-container .projects-holder i {
+  margin-top: 1em;
+}
+
+.contact-container p img {
+  margin-right: 5px;
 }
 
 @media only screen and (max-width: 1000px) {
