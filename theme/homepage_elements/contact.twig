@@ -2,7 +2,9 @@
   {% setcontent contact_block = 'block/contact' %}
   <h2>{{ contact_block.title }}</h2>
   {% if contact_block.image is not empty %}
-    <img class="right-deco-image" src="{{ asset(contact_block.image, 'files') }}"/>
+    <div class="right-deco-image-container">
+      <img class="right-deco-image" src="{{ asset(contact_block.image, 'files') }}"/>
+    </div>
   {% endif %}
 
   {{ contact_block.content }}

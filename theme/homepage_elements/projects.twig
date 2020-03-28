@@ -1,7 +1,11 @@
 <div class="projects-container">
   {% setcontent projects_block = 'block/projects' %}
   <h2>{{ projects_block.title }}</h2>
-  <img class="right-deco-image" src="{{ asset(projects_block.image, 'files') }}"/>
+  {% if projects_block.image is not empty %}
+    {# <div class="right-deco-image-container"> #}
+      <img class="right-deco-image" src="{{ asset(projects_block.image, 'files') }}"/>
+    {# </div> #}
+  {% endif %}
 
   {% setcontent projects = 'entries' where { categories: 'projects' } %}
   <div class="projects-holder">

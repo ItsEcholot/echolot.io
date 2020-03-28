@@ -35,7 +35,7 @@ h2 {
   font-size: 34px;
   font-weight: 400;
   text-decoration: underline;
-  margin-bottom: 50px;
+  display: inline-block;
 }
 
 h3 {
@@ -47,6 +47,15 @@ h3 {
 .container {
   margin-left: 50px;
   margin-right: 50px;
+}
+
+.right-deco-image-container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  right: 0;
+  top: 0;
 }
 
 img.right-deco-image {
@@ -73,6 +82,10 @@ img.right-deco-image {
   font-weight: 300;
 }
 
+.projects-container {
+  position: relative;
+}
+
 .projects-container .projects-holder {
   width: 50%;
 }
@@ -84,6 +97,15 @@ img.right-deco-image {
 
 .projects-container .projects-holder i {
   margin-top: 1em;
+}
+
+.about-container {
+  width: 50%;
+  position: relative;
+}
+
+.contact-container {
+  position: relative;
 }
 
 .contact-container p img {
@@ -101,6 +123,9 @@ img.right-deco-image {
 
 @media only screen and (max-width: 1000px) {
   .projects-container .projects-holder {
+    width: 100%;
+  }
+  .about-container {
     width: 100%;
   }
 }
