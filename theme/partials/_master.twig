@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ htmllang() }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            {{- config.get('general/sitename') -}}
+        </title>
+        {% include 'partials/_fonts.twig' %}
+        <link rel="stylesheet" href="{{ asset('css/normalize.css', 'theme') }}">
+        <link rel="stylesheet" href="{{ asset('css/stars.css', 'theme') }}">
+        <link rel="stylesheet" href="{{ asset('css/scroll_down_indicator.css', 'theme') }}">
+        <link rel="stylesheet" href="{{ asset('css/theme.css', 'theme') }}">
+    </head>
+    <body>
+        {% block body %}
+            {% block main %}
+            {% endblock main %}
+        {% endblock body %}
+    </body>
+</html>

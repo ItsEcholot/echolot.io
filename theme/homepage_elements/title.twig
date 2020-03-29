@@ -1,0 +1,17 @@
+<div class="title-container">
+  <h1>{{ record.title }}</h1>
+  <h3>{{ record.subtitle }}</h3>
+  {% if record.currently is not empty %}
+  <h3>Currently: {{ record.currently }}</h3>
+  {% endif %}
+
+  <div class="scroll-down-indicator">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>
+</div>
