@@ -61,6 +61,7 @@ h3 {
 img.right-deco-image {
   float: right;
   width: 200px;
+  margin-left: 20px;
 }
 
 .title-container {
