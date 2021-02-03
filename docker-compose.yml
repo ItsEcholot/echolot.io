@@ -2,7 +2,7 @@ version: '2'
 
 services:
   echolotio:
-    image: rossriley/docker-bolt:latest
+    image: mablanco/bolt-cms:latest
     ports:
       - "9000:80"
     environment:
