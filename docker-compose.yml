@@ -2,7 +2,7 @@ version: '2'
 
 services:
   echolotio:
-    image: mablanco/bolt-cms:latest
+    image: mablanco/bolt-cms:3.7.2
     ports:
       - "9000:80"
     environment:
