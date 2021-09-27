@@ -2,25 +2,33 @@
   {% setcontent projects_block = 'block/projects' %}
   <h2>{{ projects_block.title }}</h2>
   {% if projects_block.image is not empty %}
-    {# <div class="right-deco-image-container"> #}
       <img class="right-deco-image" src="{{ asset(projects_block.image, 'files') }}"/>
-    {# </div> #}
   {% endif %}
 
   {% setcontent projects = 'entries' where { categories: 'projects' } %}
   <div class="projects-holder">
-  {% for project in projects %}
-    <h3>{{ project.title }}</h3>
-    <i>{{ project.datepublish|date('m.Y') }}</i>
-    {{ project.body }}
-    {% set links = project.links|split('\n') %}
-    {% for link in links %}
-      {% set splitLink = link|split(' - ') %}
-      {% if splitLink|length == 2 %}
-        <a href="{{ splitLink[0] }}" target="_blank">{{ splitLink[1]|trim }}</a>
-        {% if links|length > 1 and loop.index != links|length %}・{% endif %}
-      {% endif %}
+    {% for project in projects|slice(0, 6) %}
+      {% include 'partials/_project.twig' %}
     {% endfor %}
-  {% endfor %}
+    <div id="more-projects">
+      {% for project in projects|slice(6) %}
+        {% include 'partials/_project.twig' %}
+      {% endfor %}
+    </div>
+
+    <div>
+      <div id="btn-show-more-projects" class="button" onclick="showMoreProjects()">Show all projects</div>
+    </div>
+
+    <script>
+      const moreProjects = document.getElementById('more-projects');
+      const btnShowMoreProjects = document.getElementById('btn-show-more-projects');
+      moreProjects.style.display = 'none';
+
+      function showMoreProjects(event) {
+        moreProjects.style.display = 'unset';
+        btnShowMoreProjects.style.display = 'none';
+      }
+    </script>
   </div>
 </div>

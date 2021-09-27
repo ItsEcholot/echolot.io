@@ -1,0 +1,11 @@
+<h3>{{ project.title }}</h3>
+<i>{{ project.datepublish|date('m.Y') }}</i>
+{{ project.body }}
+{% set links = project.links|split('\n') %}
+{% for link in links %}
+    {% set splitLink = link|split(' - ') %}
+    {% if splitLink|length == 2 %}
+    <a href="{{ splitLink[0] }}" target="_blank">{{ splitLink[1]|trim }}</a>
+    {% if links|length > 1 and loop.index != links|length %}・{% endif %}
+    {% endif %}
+{% endfor %}
