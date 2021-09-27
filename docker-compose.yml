@@ -10,6 +10,5 @@ services:
     volumes:
       - ./db-data:/var/www/html/app/database
       - ./files:/var/www/html/public/files
-      - ./extensions:/var/www/html/extensions
       - ./config:/var/www/html/app/config
       - ./theme:/var/www/html/public/theme/echolotio
