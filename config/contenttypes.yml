@@ -24,7 +24,7 @@ homepage:
             type: text
             group: content
         custom_footer:
-            type: html
+            type: textarea
             height: 300px
             group: content
         slug:
