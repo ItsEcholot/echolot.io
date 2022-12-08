@@ -24,8 +24,8 @@ homepage:
             type: text
             group: content
         custom_footer:
-            type: text
-            class: large
+            type: html
+            height: 300px
             group: content
         slug:
             type: slug
