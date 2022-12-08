@@ -23,6 +23,10 @@ homepage:
         currently:
             type: text
             group: content
+        custom_footer:
+            type: text
+            class: large
+            group: content
         slug:
             type: slug
             uses: title
