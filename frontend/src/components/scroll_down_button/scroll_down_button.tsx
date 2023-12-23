@@ -6,15 +6,21 @@ import styles from './scroll_down_button.module.css'
 export default function ScrollDownButton({
   scrollToRef
 }: {
-  scrollToRef: RefObject<Element>
+  scrollToRef?: RefObject<Element>
 }) {
-  const scrollToTarget = useCallback(() => {
-    if (!scrollToRef.current)
-      return;
-
-    scrollToRef.current.scrollIntoView({
+  const scrollToTarget = useCallback((event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const scrollOptions: ScrollIntoViewOptions = {
       behavior: 'smooth'
-    });
+    };
+
+    if (scrollToRef?.current) {
+      scrollToRef.current.scrollIntoView(scrollOptions);
+    } else {
+      event.currentTarget
+        .closest('section')
+        ?.nextElementSibling
+        ?.scrollIntoView(scrollOptions);
+    }
   }, [scrollToRef]);
 
   return (

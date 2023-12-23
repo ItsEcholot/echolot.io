@@ -2,3 +2,13 @@
   height: calc(100vh - 3.2rem);
   overflow-y: hidden;
 }
+
+.container h3 {
+  margin: 0;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
+.container h1 {
+  margin-bottom: 10px;
+}
