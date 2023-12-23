@@ -1,5 +1,7 @@
 .container {
   display: inline-flex;
+  height: 3.2rem;
+  align-items: center;
   gap: 1.5rem;
   position: sticky;
 
