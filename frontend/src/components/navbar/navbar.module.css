@@ -4,6 +4,7 @@
   align-items: center;
   gap: 1.5rem;
   position: sticky;
+  z-index: 1;
 
   /* Trick from https://stackoverflow.com/a/57991537 */
   top: -1px;

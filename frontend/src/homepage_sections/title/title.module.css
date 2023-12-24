@@ -1,6 +1,10 @@
 .container {
   height: calc(100vh - 3.2rem);
+  background: linear-gradient(0deg, #e6e6e6 0%, #ffffff 100%);
   overflow-y: hidden;
+  
+  margin-top: -50px; /* Move behind navbar */
+  padding-top: 50px;
 }
 
 .container h3 {

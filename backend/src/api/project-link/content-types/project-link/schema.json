@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "project_links",
+  "info": {
+    "singularName": "project-link",
+    "pluralName": "project-links",
+    "displayName": "Project Link"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    },
+    "project": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::project.project",
+      "inversedBy": "project_links"
+    }
+  }
+}

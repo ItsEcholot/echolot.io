@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "Project",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "date_from": {
+      "type": "date",
+      "required": true
+    },
+    "date_to": {
+      "type": "date"
+    },
+    "description": {
+      "type": "richtext",
+      "required": false
+    },
+    "project_links": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project-link.project-link",
+      "mappedBy": "project"
+    },
+    "importance": {
+      "type": "enumeration",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "default": "medium",
+      "required": true
+    }
+  }
+}

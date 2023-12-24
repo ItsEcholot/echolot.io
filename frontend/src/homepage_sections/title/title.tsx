@@ -1,6 +1,6 @@
 import styles from './title.module.css'
 import stars_styles from './stars.module.css'
-import ScrollDownButton from '../scroll_down_button/scroll_down_button'
+import ScrollDownButton from '../../components/scroll_down_button/scroll_down_button'
 import { backendGet } from '@/service/backend'
 
 export default async function Title() {
@@ -8,10 +8,12 @@ export default async function Title() {
 
   return (
     <section className={styles.container}>
-      <h1>{attributes.title}</h1>
-      <h3>{attributes.subtitle}</h3>
-      <h3>Currently: {attributes.currently_doing}</h3>
-      
+      <hgroup>
+        <h1>{attributes.title}</h1>
+        <h3>{attributes.subtitle}</h3>
+        <h3>Currently: {attributes.currently_doing}</h3>
+      </hgroup>
+    
       <div id={stars_styles.stars1}></div>
       <div id={stars_styles.stars2}></div>
       <div id={stars_styles.stars3}></div>
