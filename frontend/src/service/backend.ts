@@ -9,7 +9,7 @@ export async function backendGet(url: string, revalidateIn?: number): Promise<an
     requestOptions.next = {revalidate: revalidateIn} 
 
   return (await fetch(
-    process.env.API_BASE_URL + url,
+    process.env.API_BASE_URL + '/api' + url,
     requestOptions
   )).json()
 }

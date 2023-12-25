@@ -1,5 +1,6 @@
 import { Fragment, useMemo } from 'react';
 import styles from './project_entry.module.css'
+import { MDXRemote } from 'next-mdx-remote/rsc';
 
 export default function ProjectEntry({
   title,
@@ -22,28 +23,48 @@ export default function ProjectEntry({
     }]
   }
 }) {
+  const localeDateString = (date: Date) => {
+    return date.toLocaleDateString('de-CH', {
+      month: '2-digit',
+      year: 'numeric'
+    })
+  };
+
   const renderDate = useMemo(() => {
     if (date_to) {
-      if (date_to.getMonth() !== date_from.getMonth() && date_to.getFullYear() !== date_from.getFullYear())
-        return <i>{date_from.getMonth()}.{date_from.getFullYear()} - {date_to.getMonth()}.{date_to.getFullYear()}</i>;
+      if (localeDateString(date_from) !== localeDateString(date_to))
+        return <i>{localeDateString(date_from)} - {localeDateString(date_to)}</i>;
       else
-        return <i>{date_from.getMonth()}.{date_from.getFullYear()}</i>;
+        return <i>{localeDateString(date_from)}</i>;
     } else {
-      return <i>{date_from.getMonth()}.{date_from.getFullYear()} - ...</i>;
+      return <i>{localeDateString(date_from)} - ...</i>;
     }
-  }, [date_to, date_from]);
+  }, [date_from, date_to]);
+
+  const renderLinks = useMemo(() => {
+    return project_links.data
+    .map(data => ({
+      ...data,
+      attributes: {
+        ...data.attributes,
+        href: (new RegExp('^(?:[a-z+]+:)?//', 'i')).test(data.attributes.href) ?
+          data.attributes.href :
+          process.env.API_BASE_URL + data.attributes.href
+      }
+    }))
+    .map(({id, attributes}, i) => <Fragment key={id}>
+      <a href={attributes.href} target='_blank'>{attributes.title}</a>
+      {i < project_links.data.length - 1 && '・'}
+    </Fragment>)
+  }, [project_links]);
 
   return (
     <div className={styles.container}>
       <h3>{title}</h3>
       {renderDate}
-      <br/>
-      {description}
-      <br/>
-      {project_links.data.map(({id, attributes}, i) => <Fragment key={id}>
-        <a href={attributes.href}>{attributes.title}</a>
-        {i < project_links.data.length - 1 && '・'}
-      </Fragment>)}
+      {description && <MDXRemote 
+        source={description} />}
+      {renderLinks}
     </div>
   );
 }
